@@ -1,0 +1,170 @@
+.form-main{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:350px;
+    height: 420px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,.5);
+    padding: 70px 30px;
+    color: white;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+    
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+  
+
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top:-50px;
+    left: calc(50% - 50px );
+}
+h4{
+    color:white;
+    margin-top: 25px;
+    text-align: center;
+    font-family: 'Krub', sans-serif;
+    
+}
+ 
+p{
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Krub', sans-serif;
+    left: 5px;
+     
+}
+
+.form-main input[type="text"]
+{
+    border:none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    color: white;
+    text-align: center;
+     
+}
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.exitButton{
+    top:0;
+    right:2px;
+    position: absolute;
+    color: white;  
+    cursor: pointer;
+}
+
+.valid{
+    color: rgb(231, 14, 14);
+}
+
+.form-buttons{
+    text-align: center;
+     
+}
+
+.form-buttons button{
+    margin: 5px;
+}
+ 
+/*CHECKBOX*/
+ 
+ 
+.customcheck {
+    display: block;
+    position: relative;
+    padding-left: 10px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+ 
+.customcheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+ 
+.checkmark {
+    position: absolute;
+    top: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+ 
+.customcheck:hover input ~ .checkmark {
+    background-color: #ccc;
+    border: 1px solid #31b5dd;
+}
+
+ 
+.customcheck input:checked ~ .checkmark {
+    background-color: #31b5dd;
+    border-radius: 5px;
+}
+
+ 
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+ 
+.customcheck input:checked ~ .checkmark:after {
+    display: block;
+}
+
+ 
+.customcheck .checkmark:after {
+    left: 11px;
+    top: 6px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.datepicker{
+    text-align: center;
+    font-family: 'Krub', sans-serif;
+    font-weight: bold;
+}

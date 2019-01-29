@@ -1,0 +1,39 @@
+
+<form class="form-main" (ngSubmit)="onSubmit.emit(movie)" #f="ngForm">
+    
+  <img  src="{{ movie.poster_path }}" class="avatar">
+  <i class="glyphicon glyphicon-remove exitButton" (click)="onClose.emit()"></i>
+  <div id="movie-title">
+     
+    <div class="form-group"> 
+      <h4>
+        <i class="glyphicon glyphicon-pencil"></i>
+        {{movie.title | movieTitle }}
+      </h4>
+      <p>Movie Name:</p>
+      <input type="text" class="form-control" placeholder="{{movie.title}}" [ngModel]="" name="movie_title" (ngModelChange)="movie.title=$event" required minlength="2" #title="ngModel" >
+      <span class="help=block valid" *ngIf="!title.valid && title.touched">* Please enter a valid title</span>
+  
+  </div>
+</div>
+<div class="form-group">
+  <p>Release Date:</p>
+  <input type="date" class="form-control datepicker" #movieDate data-date-format="mm/dd/yyyy" value="{{movie.release_date}}" ngModel="{{movie.release_date}}" name="release_date" (ngModelChange)="movie.release_date=$event" required  > 
+  <span class="help=block valid" *ngIf="!movieDate.valid && movieDate.touched">* Please enter a valid date</span>
+</div>
+
+<div class="form-group">
+<label class="customcheck">  
+    <span class="btn-label icon eye-close" ><i class="glyphicon glyphicon-eye-close"></i></span> Adults only? 
+    <input type="checkbox" [(ngModel)]="checked" name="adults_only" (ngModelChange)="movie.adult=$event" >
+    <span class="checkmark"></span>
+</label>
+</div>
+<div class="form-group form-buttons">
+<button class="btn btn-primary" type="submit" [disabled]="!f.valid">Update</button>
+<button class="btn btn-danger" (click)="onClose.emit()" >Cancel</button>
+</div>
+</form>
+
+
+

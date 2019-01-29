@@ -1,0 +1,46 @@
+<div [ngStyle]="showMovieForm && {'pointer-events': 'none' , 'opacity': '0.3'} || showPopUp && {'pointer-events': 'none' , 'opacity': '0.3'}" >
+<div class="row">
+  <div class="col"> 
+  <div class="searchBox">
+      <input type="text" class="search-box-input" placeholder="Search Movie . . . " [(ngModel)]="searchValue" (ngModelChange)="searchMovie()">
+      <button class="search-box-button" (click)="searchMovie()">  
+      <span class="btn-label search" ><i class="glyphicon glyphicon-search"></i></span>
+      </button>
+  </div>
+    <br/>   
+    
+    <ul class="nav navbar-nav">
+      <li (click)="createNewMovie()" ><a > <span class="btn-label addmovie plus" ><i class="glyphicon glyphicon-plus"></i></span></a></li>
+      <li (click)="getMovies('upcoming')" ><a href="#">Upcoming</a></li>
+      <li (click)="getMovies('popular')"><a href="#">Popular  Now</a></li>
+      <li (click)="getMovies('top_rated')"><a href="#">Top Rated</a></li>
+      <li (click)="getMovies('now_playing')"><a href="#">Now Playing</a></li>
+    </ul>
+    
+  </div>
+</div>
+<div class="row moviesContainer">
+  <div >
+    <app-movie-item *ngFor="let movieEl of moviesList"
+     [movie]="movieEl"
+     (editMovie)=onEditMovie($event)
+     (removeMovie)=onRemoveMovie($event)>
+    </app-movie-item> 
+  </div>
+</div>
+</div>
+<app-movie-form *ngIf="showMovieForm"
+  [movie]="movie"
+  (onSubmit)="editMovie($event)"
+  (onClose)="close()">
+</app-movie-form>
+
+<app-modal *ngIf="showPopUp"
+(onSubmit)="deleteMovie()"
+(onClose)="closePopUp()">
+</app-modal>
+
+<app-notification *ngIf="showError"
+(onSubmit)="closeNotification()"
+(onClose)="closeNotification()"> 
+</app-notification>

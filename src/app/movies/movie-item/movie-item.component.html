@@ -1,0 +1,30 @@
+<div class="movieItemContainer">
+  <div class="movieCard">
+
+    <div class="movieItem-front" [ngStyle]="{'background-image': 'url(' + movie.poster_path + ')'}">
+
+    </div>
+
+    <div class="movieItem-back">
+      <div class="movieItem-back-border">
+        <p *ngIf="movie.adult"><span class="btn-label icon eye-close"><i class="glyphicon glyphicon-eye-close"></i></span>
+          18+</p>
+        <p *ngIf="!movie.adult"><span class="btn-label icon eye-open"><i class="glyphicon glyphicon-eye-open"></i></span>
+          All ages</p>
+
+        <h4> {{movie.title | movieTitle }}</h4>
+        <br />
+        <p> {{ movie.overview | truncate : 80 }}</p>
+        <br />
+        <p><i class="glyphicon glyphicon-calendar"></i> Release Date: {{movie.release_date}}</p>
+        <p><i class="glyphicon glyphicon-globe"></i> Language: {{movie.original_language}}</p>
+
+
+        <div class="movieItemIcons">
+          <span class="btn-label icon pencil" (click)="editMovie.emit(movie.id)"><i class="glyphicon glyphicon-pencil"></i></span>
+          <span class="btn-label icon trash" (click)="removeMovie.emit(movie.id)"><i class="glyphicon glyphicon-trash"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
